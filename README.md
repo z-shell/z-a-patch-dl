@@ -1,7 +1,7 @@
 ## Introduction
 
 A Zsh-Zplugin extension (i.e. an
-[annex](http://zdharma.org/zplugin/wiki/Annexes/)] that downloads files and
+[annex](http://zdharma.org/zplugin/wiki/Annexes/) that downloads files and
 applies patches. It adds two ice modifiers:
 
 ```zsh
@@ -20,8 +20,8 @@ last segment of the URL) in case of the `dl''` ice-mod, and apply a patch given
 by the `{file-name-with-the-patch-to-apply}` in case of the `patch''` ice-mod.
 
 You can use this functionality to download and apply patches. For example, to
-install `fbterm`, two patches are being needed, one to fix the operation, the other
-one to fix the build:
+install `fbterm`, two patches are being needed, one to fix the operation, the
+other one to fix the build:
 
 ```zsn
 zplugin ice \
