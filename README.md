@@ -1,7 +1,8 @@
 ## Introduction
 
-A Zsh-Zplugin extension that downloads files and applies patches. It adds two
-ice modifiers:
+A Zsh-Zplugin extension (i.e. an
+[annex](http://zdharma.org/zplugin/wiki/Annexes/)] that downloads files and
+applies patches. It adds two ice modifiers:
 
 ```zsh
 zplugin ice dl'{URL} [-> {optional-output-file-name}]; …' …
