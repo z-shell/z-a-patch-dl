@@ -4,13 +4,13 @@
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 
-autoload -Uz :zp-patch-dl-handler
+autoload -Uz :za-patch-dl-handler
 
 @zplg-register-annex "z-a-test" hook:\!atclone \
-    :zp-patch-dl-handler \
-    :zp-patch-dl-help-handler \
+    :za-patch-dl-handler \
+    :za-patch-dl-help-handler \
     "dl''|patch''" # register a new ice-mod: test''
 
 @zplg-register-annex "z-a-test" hook:\!atpull \
-    :zp-patch-dl-handler \
-    :zp-patch-dl-help-handler
+    :za-patch-dl-handler \
+    :za-patch-dl-help-handler
