@@ -83,6 +83,20 @@ if [[ -n "${ZPLG_ICE[dl]}" ]] {
 }
 
 if [[ -n "${ZPLG_ICE[patch]}" ]] {
+    local -a patches
+    patches=( "${(s.;.)ZPLG_ICE[patch]}" )
+    patches=( "${patches[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
+
+    local pch 
+    for pch ( $patches ) {
+        print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
+
+        (   cd -q "$dir"
+            print -nP "%F{220}"
+            command patch -s -N -p1 -i "$pch"
+            print -nP "%f"
+        )
+    }
 }
 
 # vim:ft=zsh:sw=4:sts=4:et
