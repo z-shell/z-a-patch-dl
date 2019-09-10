@@ -42,7 +42,7 @@ example](https://raw.githubusercontent.com/zplugin/z-a-patch-dl/master/images/fb
 
 ## Installation
 
-Simply load like a plugin. The following will add the annex to Zplugin:
+Simply load like a plugin, i.e. the following will add the annex to Zplugin:
 
 ```zsh
 zplugin light zplugin/z-a-patch-dl
