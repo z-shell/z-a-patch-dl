@@ -6,11 +6,16 @@
 
 autoload -Uz :za-patch-dl-handler
 
+# An empty stub to fill the help handler fields
+:za-patch-dl-help-null-handler() { :; }
+
+# Register !atclone hook
 @zplg-register-annex "z-a-test" hook:\!atclone \
     :za-patch-dl-handler \
-    :za-patch-dl-help-handler \
+    :za-patch-dl-help-null-handler \
     "dl''|patch''" # register a new ice-mod: test''
 
+# Register !atpull hook
 @zplg-register-annex "z-a-test" hook:\!atpull \
     :za-patch-dl-handler \
-    :za-patch-dl-help-handler
+    :za-patch-dl-help-null-handler
