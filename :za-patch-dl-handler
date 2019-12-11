@@ -95,6 +95,8 @@ if [[ -n "${ZPLG_ICE[patch]}" ]] {
 
     local pch 
     for pch ( $patches ) {
+        -zplg-substitute pch
+
         print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
 
         (   cd -q "$dir"
