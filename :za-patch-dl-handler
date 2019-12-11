@@ -62,9 +62,9 @@ if [[ -n "${ZPLG_ICE[dl]}" ]] {
             hd="${srcdst[2]:h}"
             tl="${srcdst[2]:t}"
         } || {
+            -zplg-substitute 'srcdst[1]'
             hd="."
             tl="${${srcdst[1]%%\?*}:t}"
-            -zplg-substitute tl
         }
 
         local tdir="${${(M)hd:#/*}:-$dir/$hd}"
