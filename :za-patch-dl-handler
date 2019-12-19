@@ -47,7 +47,7 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     return 0
 } # }}}
 
-if [[ -n ${ZPLG_ICE[dl]} && ${ZPLG_ICE[dl]} != page(http(|s)|ftp(s|)|scp|ssh)://* ]] {
+if [[ -n ${ZPLG_ICE[dl]} && ${ZPLG_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://* ]] {
     local -a dls srcdst
     dls=( "${(s.;.)ZPLG_ICE[dl]}" )
 
