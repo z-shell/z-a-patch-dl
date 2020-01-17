@@ -47,9 +47,9 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     return 0
 } # }}}
 
-if [[ -n ${ZPLG_ICE[dl]} && ${ZPLG_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://* ]] {
+if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://* ]] {
     local -a dls srcdst
-    dls=( "${(s.;.)ZPLG_ICE[dl]}" )
+    dls=( "${(s.;.)ZINIT_ICE[dl]}" )
 
     local dl hd tl
     for dl ( $dls ) {
@@ -58,11 +58,11 @@ if [[ -n ${ZPLG_ICE[dl]} && ${ZPLG_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://
         
         hd="" tl=""
         [[ -n ${srcdst[2]} ]] && {
-            -zplg-substitute 'srcdst[2]'
+            @zinit-substitute 'srcdst[2]'
             hd="${srcdst[2]:h}"
             tl="${srcdst[2]:t}"
         } || {
-            -zplg-substitute 'srcdst[1]'
+            @zinit-substitute 'srcdst[1]'
             hd="."
             tl="${${srcdst[1]%%\?*}:t}"
         }
@@ -88,14 +88,14 @@ if [[ -n ${ZPLG_ICE[dl]} && ${ZPLG_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://
     }
 }
 
-if [[ -n "${ZPLG_ICE[patch]}" ]] {
+if [[ -n "${ZINIT_ICE[patch]}" ]] {
     local -a patches
-    patches=( "${(s.;.)ZPLG_ICE[patch]}" )
+    patches=( "${(s.;.)ZINIT_ICE[patch]}" )
     patches=( "${patches[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
     local pch 
     for pch ( $patches ) {
-        -zplg-substitute pch
+        @zinit-substitute pch
 
         print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
 
