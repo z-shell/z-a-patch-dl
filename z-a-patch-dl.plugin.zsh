@@ -10,12 +10,12 @@ autoload -Uz :za-patch-dl-handler
 :za-patch-dl-help-null-handler() { :; }
 
 # Register !atclone hook
-@zplg-register-annex "z-a-patch-dl" hook:\!atclone \
+@zinit-register-annex "z-a-patch-dl" hook:\!atclone \
     :za-patch-dl-handler \
     :za-patch-dl-help-null-handler \
     "dl''|patch''" # register a new ice-mod: test''
 
 # Register !atpull hook
-@zplg-register-annex "z-a-patch-dl" hook:\!atpull \
+@zinit-register-annex "z-a-patch-dl" hook:\!atpull \
     :za-patch-dl-handler \
     :za-patch-dl-help-null-handler
