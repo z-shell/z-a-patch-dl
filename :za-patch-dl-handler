@@ -5,10 +5,10 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
     local type="$1" url="$2" id_as="$3" dir="$4"
 
-# FUNCTION: .z-p-patch-dl-download-file-stdout {{{
+# FUNCTION: .z-a-patch-dl-download-file-stdout {{{
 # Downloads file to stdout. Supports following backend commands:
 # curl, wget, lftp, lynx. Used by snippet loading.
-.z-p-patch-dl-download-file-stdout() {
+.z-a-patch-dl-download-file-stdout() {
     local url="$1" restart="$2"
 
     setopt localoptions localtraps
@@ -39,7 +39,7 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
         elif type lftp 2>/dev/null 1>&2; then
             command lftp -c "cat $url" || return 1
         else
-            .z-p-patch-dl-download-file-stdout "$url" "1"
+            .z-a-patch-dl-download-file-stdout "$url" "1"
             return $?
         fi
     fi
@@ -74,8 +74,8 @@ if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh):
 
         local ret=0
 
-        .z-p-patch-dl-download-file-stdout "${srcdst[1]}" >! "$tdir/$tl" || {
-            .z-p-patch-dl-download-file-stdout "${srcdst[1]}" 1 >! "$tdir/$tl" || {
+        .z-a-patch-dl-download-file-stdout "${srcdst[1]}" >! "$tdir/$tl" || {
+            .z-a-patch-dl-download-file-stdout "${srcdst[1]}" 1 >! "$tdir/$tl" || {
                 print -P -- "%F{38}patch-dl annex: %F{160}Couldn't download" \
                         "the url %F{220}${srcdst[1]}%f"
                 ret=1
