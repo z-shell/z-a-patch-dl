@@ -82,7 +82,7 @@ if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh):
             }
         }
 
-        (( !ret )) && \
+        (( !ret && !ICE_OPTS[opt_-q,--quiet] )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}File %F{220}$tl%F{154}" \
                 "downloaded correctly%f"
     }
@@ -97,7 +97,8 @@ if [[ -n "${ZINIT_ICE[patch]}" ]] {
     for pch ( $patches ) {
         @zinit-substitute pch
 
-        print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
+        (( !ICE_OPTS[opt_-q,--quiet] )) && \
+            print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
 
         (   cd -q "$dir"
             print -nP "%F{220}"
