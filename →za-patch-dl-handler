@@ -47,7 +47,7 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     return 0
 } # }}}
 
-if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != ink[-/[:alpha:]]* ]] {
+if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != ink=[-/[:alnum:]]* ]] {
     local -a dls srcdst
     dls=( "${(s.;.)ZINIT_ICE[dl]}" )
 
