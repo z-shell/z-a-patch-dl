@@ -47,7 +47,7 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     return 0
 } # }}}
 
-if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != link(http(|s)|ftp(s|)|scp|ssh)://* ]] {
+if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != ink[-/[:alpha:]]* ]] {
     local -a dls srcdst
     dls=( "${(s.;.)ZINIT_ICE[dl]}" )
 
