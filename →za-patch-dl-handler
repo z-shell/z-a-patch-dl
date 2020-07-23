@@ -47,9 +47,9 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
     return 0
 } # }}}
 
-if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != ink=[-/[:alnum:]]* ]] {
+if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
     local -a dls srcdst
-    dls=( "${(s.;.)ZINIT_ICE[dl]}" )
+    dls=( "${(s.;.)ICE[dl]}" )
 
     local dl hd tl
     for dl ( $dls ) {
@@ -82,22 +82,22 @@ if [[ -n ${ZINIT_ICE[dl]} && ${ZINIT_ICE[dl]} != ink=[-/[:alnum:]]* ]] {
             }
         }
 
-        (( !ret && !ICE_OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
+        (( !ret && !OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}File %F{220}$tl%F{154}" \
                 "downloaded correctly%f"
     }
 }
 
-if [[ -n "${ZINIT_ICE[patch]}" ]] {
+if [[ -n "${ICE[patch]}" ]] {
     local -a patches
-    patches=( "${(s.;.)ZINIT_ICE[patch]}" )
+    patches=( "${(s.;.)ICE[patch]}" )
     patches=( "${patches[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
     local pch 
     for pch ( $patches ) {
         @zinit-substitute pch
 
-        (( !ICE_OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
+        (( !OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
 
         (   cd -q "$dir"
