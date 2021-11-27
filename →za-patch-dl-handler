@@ -15,11 +15,11 @@ setopt extendedglob warncreateglobal typesetsilent noshortloops
 
     if (( restart )); then
         (( ${path[(I)/usr/local/bin]} )) || \
-            { 
+            {
                 path+=( "/usr/local/bin" );
                 trap "path[-1]=()" EXIT
             }
-    
+
         if (( ${+commands[curl]} )) then
             command curl -fsSL "$url" || return 1
         elif (( ${+commands[wget]} )); then
@@ -55,7 +55,7 @@ if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
     for dl ( $dls ) {
         srcdst=( ${(@s.->.)dl} )
         srcdst=( "${srcdst[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
-        
+
         hd="" tl=""
         [[ -n ${srcdst[2]} ]] && {
             @zinit-substitute 'srcdst[2]'
@@ -82,7 +82,7 @@ if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
             }
         }
 
-        (( !ret && !OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
+        (( !ret && !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}File %F{220}$tl%F{154}" \
                 "downloaded correctly%f"
     }
@@ -93,11 +93,11 @@ if [[ -n "${ICE[patch]}" ]] {
     patches=( "${(s.;.)ICE[patch]}" )
     patches=( "${patches[@]//((#s)[[:space:]]##|[[:space:]]##(#e))/}" )
 
-    local pch 
+    local pch
     for pch ( $patches ) {
         @zinit-substitute pch
 
-        (( !OPTS[opt_-q,--quiet] && ZINIT[annex-multi-flag:pull-active] == 2 )) && \
+        (( !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
 
         (   cd -q "$dir"
@@ -107,5 +107,3 @@ if [[ -n "${ICE[patch]}" ]] {
         )
     }
 }
-
-# vim:ft=zsh:sw=4:sts=4:et

@@ -1,22 +1,28 @@
-# `Z-A-PATCH-DL`
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Installation](#installation)
 
-## Introduction
+# Introduction
 
-A Zsh-Zinit extension (i.e. an
+> **[?]**
+> This repository not compatible with previous version of Zinit.
+> Please upgrade to [ZI](https://github.com/z-shell/zi).
+
+A Z-Shell ZI extension (i.e. an
 [annex](http://z-shell.github.io/zinit/wiki/Annexes/)) that downloads files and
 applies patches. It adds two ice modifiers:
 
 ```zsh
-zinit ice dl'{URL} [-> {optional-output-file-name}]; …' …
+zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
 ```
 
 and
 
 ```zsh
-zinit ice patch'{file-name-with-the-patch-to-apply}; …' …
+zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 ```
 
-The Zinit annex (i.e. an extension) will:
+The ZI Annex (i.e. an extension) will:
 
 - download the given `{URL}` under the path `{optional-output-file-name}` (if no
   file name given, then it is taken from last segment of the URL) in case of the
@@ -24,12 +30,14 @@ The Zinit annex (i.e. an extension) will:
 - apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of
   the `patch''` ice-mod.
 
+# Usage
+
 You can use this functionality to download and apply patches. For example, to
 install `fbterm`, two patches are being needed, one to fix the operation, the
 other one to fix the build:
 
 ```zsn
-zinit ice \
+zi ice \
     as"command" pick"$ZPFX/bin/fbterm" \
     dl"https://bugs.archlinux.org/task/46860?getfile=13513 -> ins.patch" \
     dl"https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-build-with-gcc-6.patch?h=fbterm-git" \
@@ -37,21 +45,19 @@ zinit ice \
     atclone"./configure --prefix=$ZPFX" \
     atpull"%atclone" \
     make"install" reset
-zinit load izmntuk/fbterm
+zi load izmntuk/fbterm
 ```
 
 This command will result in:
 
 ![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/images/fbterm-ex.png)
 
-## Installation
+# Installation
 
-Simply load like a plugin, i.e. the following will add the annex to Zinit:
+Simply load like a plugin, i.e. the following will add the annex to ZI:
 
 ```zsh
-zinit light z-shell/z-a-patch-dl
+zi light z-shell/z-a-patch-dl
 ```
 
 After executing this command you can then use the `dl''` and `patch''` ice-mods.
-
-<!-- vim:set ft=markdown tw=80 et sw=4 sts=4: -->

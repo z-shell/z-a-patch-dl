@@ -10,6 +10,8 @@
 
 # A popular plugin manager's files
 ._zinit
+._zi
+.zi_lastupd
 .zinit_lastupd
 
 # zdharma/zshelldoc tool's files
