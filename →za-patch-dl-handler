@@ -58,11 +58,11 @@ if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
 
         hd="" tl=""
         [[ -n ${srcdst[2]} ]] && {
-            @zinit-substitute 'srcdst[2]'
+            @zi-substitute 'srcdst[2]'
             hd="${srcdst[2]:h}"
             tl="${srcdst[2]:t}"
         } || {
-            @zinit-substitute 'srcdst[1]'
+            @zi-substitute 'srcdst[1]'
             hd="."
             tl="${${srcdst[1]%%\?*}:t}"
         }
@@ -95,7 +95,7 @@ if [[ -n "${ICE[patch]}" ]] {
 
     local pch
     for pch ( $patches ) {
-        @zinit-substitute pch
+        @zi-substitute pch
 
         (( !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
             print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
