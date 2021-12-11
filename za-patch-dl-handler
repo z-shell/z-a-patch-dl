@@ -62,11 +62,11 @@ if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
     local ret=0
     .z-a-patch-dl-download-file-stdout "${srcdst[1]}" >! "$tdir/$tl" || {
       .z-a-patch-dl-download-file-stdout "${srcdst[1]}" 1 >! "$tdir/$tl" || {
-        print -P -- "%F{38}patch-dl annex: %F{160}Couldn't download" "the url %F{220}${srcdst[1]}%f"
+        print -P -- "%F{93}patch-dl annex: %F{160}Couldn't download" "the url %F{220}${srcdst[1]}%f"
         ret=1
       }
     }
-    (( !ret && !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && print -P -- "%F{38}patch-dl annex: %F{154}File %F{220}$tl%F{154}" \
+    (( !ret && !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && print -P -- "%F{93}patch-dl annex: %F{51}File %F{220}$tl%F{51}" \
     "downloaded correctly%f"
   }
 }
@@ -79,7 +79,7 @@ if [[ -n "${ICE[patch]}" ]] {
   for pch ( $patches ) {
     @zi-substitute pch
     (( !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
-      print -P -- "%F{38}patch-dl annex: %F{154}Applying patch %F{220}$pch...%f"
+      print -P -- "%F{93}patch-dl annex: %F{51}Applying patch %F{220}$pch...%f"
     (   cd -q "$dir"
       print -nP "%F{220}"
       command patch -s -N -p1 -i "$pch"

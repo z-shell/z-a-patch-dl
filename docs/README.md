@@ -1,16 +1,10 @@
-- [Introduction](#introduction)
-- [Usage](#usage)
-- [Installation](#installation)
+<h1> Introduction </h1>
 
-# Introduction
+**Wiki:** [Annexes](https://github.com/z-shell/zi/wiki/Annexes)
 
-> **[?]**
-> This repository not compatible with previous version of Zinit.
-> Please upgrade to [ZI](https://github.com/z-shell/zi).
+This repository compatible of [ZI](https://github.com/z-shell/zi).
 
-A Z-Shell ZI extension (i.e. an
-[annex](http://z-shell.github.io/zinit/wiki/Annexes/)) that downloads files and
-applies patches. It adds two ice modifiers:
+An Annex (i.e extension), that downloads files and applies patches. It adds two ice modifiers:
 
 ```zsh
 zi ice dl'{URL} [-> {optional-output-file-name}]; …' …
@@ -50,7 +44,7 @@ zi load izmntuk/fbterm
 
 This command will result in:
 
-![fbterm example](https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/images/fbterm-ex.png)
+![fbterm example](images/fbterm-ex.png)
 
 # Installation
 
