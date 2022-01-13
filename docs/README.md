@@ -1,8 +1,13 @@
-<h1> Introduction </h1>
+<h2 align="center">
+  <a href="https://github.com/z-shell/zi">
+    <img src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="80" height="80" />
+  </a>
+❮ ZI ❯ Annex - Unscope
+</h2>
 
-**Wiki:** [Annexes](https://github.com/z-shell/zi/wiki/Annexes)
+# Wiki: [Annexes](https://z-shell.pages.dev/docs/ecosystem/annexes)
 
-This repository compatible of [ZI](https://github.com/z-shell/zi).
+**[?]** This repository compatible of [ZI](https://github.com/z-shell/zi).
 
 An Annex (i.e extension), that downloads files and applies patches. It adds two ice modifiers:
 
