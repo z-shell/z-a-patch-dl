@@ -1,7 +1,8 @@
 emulate -RL zsh
 setopt extendedglob warncreateglobal typesetsilent noshortloops
 
-[[ "$1" = plugin ]] && local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
+[[ "$1" = plugin ]] && \
+local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
 local type="$1" url="$2" id_as="$3" dir="$4"
 
 # FUNCTION: .z-a-patch-dl-download-file-stdout {{{
@@ -87,3 +88,5 @@ if [[ -n "${ICE[patch]}" ]] {
     )
     }
 }
+
+# vim: ft=zsh sw=2 ts=2 et
