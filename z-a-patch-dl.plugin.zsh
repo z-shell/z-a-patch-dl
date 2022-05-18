@@ -1,3 +1,10 @@
+#  ============================================================================  #
+#  [ https://github.com/z-shell ] ❮ ZI ❯         [ (c) 2022 Z-SHELL COMMUNITY ]  #
+#  ============================================================================  #
+#
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+#
 # According to the Zsh Plugin Standard:
 # https://z.digitalclouds.dev/community/zsh_plugin_standard/#zero-handling
 0="${ZERO:-${${0:#$ZSH_ARGZERO}:-${(%):-%N}}}"
@@ -23,5 +30,3 @@ autoload -Uz →za-patch-dl-handler
 @zi-register-annex "z-a-patch-dl" hook:\!atpull-20 \
   →za-patch-dl-handler \
   →za-patch-dl-help-null-handler
-
-# vim: ft=zsh sw=2 ts=2 et
