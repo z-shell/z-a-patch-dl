@@ -1,12 +1,21 @@
-emulate -RL zsh
-setopt extendedglob warncreateglobal typesetsilent noshortloops
+#  ============================================================================  #
+#  [ https://github.com/z-shell ] ❮ ZI ❯         [ (c) 2022 Z-SHELL COMMUNITY ]  #
+#  ============================================================================  #
+#
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+
+emulate -L zsh
+setopt extended_glob warn_create_global \
+typeset_silent no_short_loops rc_quotes no_auto_pushd
 
 [[ "$1" = plugin ]] && \
 local type="$1" user="$2" plugin="$3" id_as="$4" dir="$5" || \
 local type="$1" url="$2" id_as="$3" dir="$4"
 
 # FUNCTION: .z-a-patch-dl-download-file-stdout {{{
-# Downloads file to stdout. Supports following backend commands: curl, wget, lftp, lynx. Used by snippet loading.
+# Downloads file to stdout. Supports following backend commands:
+# curl, wget, lftp, lynx. Used by snippet loading.
 .z-a-patch-dl-download-file-stdout() {
   local url="$1" restart="$2"
   setopt localoptions localtraps
@@ -40,6 +49,7 @@ local type="$1" url="$2" id_as="$3" dir="$4"
   fi
   return 0
 } # }}}
+
 if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
   local -a dls srcdst
   dls=( "${(s.;.)ICE[dl]}" )
@@ -63,13 +73,13 @@ if [[ -n ${ICE[dl]} && ${ICE[dl]} != ink=[-/[:alnum:]]* ]] {
     local ret=0
     .z-a-patch-dl-download-file-stdout "${srcdst[1]}" >! "$tdir/$tl" || {
       .z-a-patch-dl-download-file-stdout "${srcdst[1]}" 1 >! "$tdir/$tl" || {
-        print -P -- "%F{93}patch-dl annex: %F{160}Couldn't download" "the url %F{220}${srcdst[1]}%f"
+        +zi-message "{pre}patch-dl annex{ehi}:{rst} {error}Couldn't download the URL {info2}${srcdst[1]}{rst}"
         ret=1
       }
     }
-    (( !ret && !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && print -P -- "%F{93}patch-dl annex: %F{51}File %F{220}$tl%F{51}" \
-    "downloaded correctly%f"
-  }
+    (( !ret && !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
+    +zi-message "{pre}patch-dl annex{ehi}:{rst} File {info2}$tl{rst} downloaded correctly{rst}"
+    }
 }
 
 if [[ -n "${ICE[patch]}" ]] {
@@ -80,13 +90,11 @@ if [[ -n "${ICE[patch]}" ]] {
   for pch ( $patches ) {
     @zi-substitute pch
     (( !OPTS[opt_-q,--quiet] && ZI[annex-multi-flag:pull-active] == 2 )) && \
-      print -P -- "%F{93}patch-dl annex: %F{51}Applying patch %F{220}$pch...%f"
+    +zi-message "{pre}patch-dl annex{ehi}:{rst} Applying patch {info2}$pch{rst}…"
     (   cd -q "$dir"
       print -nP "%F{220}"
       command patch -s -N -p1 -i "$pch"
       print -nP "%f"
     )
-    }
+  }
 }
-
-# vim: ft=zsh sw=2 ts=2 et
