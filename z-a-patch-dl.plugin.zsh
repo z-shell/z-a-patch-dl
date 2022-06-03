@@ -1,5 +1,5 @@
 #  ============================================================================  #
-#  [ https://github.com/z-shell ] ❮ ZI ❯         [ (c) 2022 Z-SHELL COMMUNITY ]  #
+#  [ https://github.com/z-shell ] ❮ ZI ❯         [ (c) 2022 Z-SHELL COMMUNITY ] #
 #  ============================================================================  #
 #
 # -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
@@ -16,7 +16,7 @@ if [[ $PMSPEC != *f* ]] {
 }
 
 # https://z.digitalclouds.dev/community/zsh_plugin_standard/#the-proposed-function-name-prefixes
-autoload -Uz →za-patch-dl-handler
+autoload -Uz .z-a-patch-dl-download-file-stdout →za-patch-dl-handler
 
 # An empty stub to fill the help handler fields
 →za-patch-dl-null-handler() { :; }
