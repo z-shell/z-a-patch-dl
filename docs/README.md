@@ -23,27 +23,22 @@ zi ice patch'{file-name-with-the-patch-to-apply}; …' …
 
 The ZI Annex (i.e. an extension) will:
 
-- download the given `{URL}` under the path `{optional-output-file-name}` (if no
-  file name given, then it is taken from last segment of the URL) in case of the
-  `dl''` ice-mod,
-- apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of
-  the `patch''` ice-mod.
+- download the given `{URL}` under the path `{optional-output-file-name}` (if no file name given, then it is taken from last segment of the URL) in case of the `dl''` ice-mod,
+- apply a patch given by the `{file-name-with-the-patch-to-apply}` in case of the `patch''` ice-mod.
 
 # Usage
 
-You can use this functionality to download and apply patches. For example, to
-install `fbterm`, two patches are being needed, one to fix the operation, the
-other one to fix the build:
+You can use this functionality to download and apply patches. For example, to install `fbterm`, two patches are being needed, one to fix the operation, the other one to fix the build:
 
 ```zsn
 zi ice \
-    as"command" pick"$ZPFX/bin/fbterm" \
-    dl"https://bugs.archlinux.org/task/46860?getfile=13513 -> ins.patch" \
-    dl"https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-build-with-gcc-6.patch?h=fbterm-git" \
-    patch"ins.patch; 0001-Fix-build-with-gcc-6.patch" \
-    atclone"./configure --prefix=$ZPFX" \
-    atpull"%atclone" \
-    make"install" reset
+  as"command" pick"$ZPFX/bin/fbterm" \
+  dl"https://bugs.archlinux.org/task/46860?getfile=13513 -> ins.patch" \
+  dl"https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-build-with-gcc-6.patch?h=fbterm-git" \
+  patch"ins.patch; 0001-Fix-build-with-gcc-6.patch" \
+  atclone"./configure --prefix=$ZPFX" \
+  atpull"%atclone" \
+  make"install" reset
 zi load izmntuk/fbterm
 ```
 
