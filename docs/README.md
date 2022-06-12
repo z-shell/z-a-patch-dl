@@ -4,7 +4,7 @@
     <img align="center" src="https://github.com/z-shell/zi/raw/main/docs/images/logo.svg" alt="Logo" width="60px" height="60px" />
   </a> ❮ ZI ❯ Annex - Patch DL </h1>
   <h2><p> An Annex that installs rust and cargo packages locally inside the plugin or snippet directories </p></h2>
-  <!--  <p><img align="center" src="https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png" alt="zi annex meta-plugins" width="100%" height="auto" /></p> -->
+  <p><img align="center" src="https://raw.githubusercontent.com/z-shell/z-a-patch-dl/main/docs/images/fbterm-ex.png" alt="zi annex meta-plugins" width="100%" height="auto" /></p>
 </td></tr></table></div><hr />
 
 ## 💡 Wiki: [patch-dl](https://z.digitalclouds.dev/ecosystem/annexes/patch-dl) - [annexes](https://z.digitalclouds.dev/ecosystem/annexes)
