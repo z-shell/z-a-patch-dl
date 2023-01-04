@@ -1,6 +1,27 @@
 {
   "conventionalCommits.scopes": ["workspace"],
   "markdownlint.config": {
-    "extends": ".github/.markdownlint.yaml"
+    "extends": ".trunk/config/.markdownlint.yaml"
+  },
+  "shellformat.useEditorConfig": true,
+  "files.associations": {
+    "*za-*": "shellscript"
+  },
+  "shellcheck.ignorePatterns": {
+    "**/*.xonshrc": true,
+    "**/*.xsh": true,
+    "**/*.zsh": true,
+    "**/*.zshrc": true,
+    "**/zshrc": true,
+    "**/*.zprofile": true,
+    "**/zprofile": true,
+    "**/*.zlogin": true,
+    "**/zlogin": true,
+    "**/*.zlogout": true,
+    "**/zlogout": true,
+    "**/*.zshenv": true,
+    "**/zshenv": true,
+    "**/*.zsh-theme": true,
+    "**/*za-*": true
   }
 }
